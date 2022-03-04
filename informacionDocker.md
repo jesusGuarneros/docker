@@ -1,0 +1,29 @@
+# Comandos de Docker:
+
+###### Vizualiza las imagenes que se tienen descargadas y/o creadas:
+
+sudo docker images
+
+###### vizualiza los contenedores que se encuentran corriendo:
+
+sudo docker ps -a
+
+###### corre y/o crea un contenedor
+
+sudo docker run -d apache-centos
+
+###### vizualiza el historial de un contenedor
+
+sudo docker history -H apache-centos:apache-cmd
+
+###### borra algun contenedor deacuerdo al nombre:
+
+sudo docker rm -fv dreamy_neumann
+
+###### corre un contenedor asigandole el nombre "apache" utilizando la imagen "apache-centos" utilizando la version "apache-cmd"
+
+sudo docker run -d --name apache apache-centos:apache-cmd
+
+###### corre un contenedor asigandole el nombre "apache1" utilizando la imagen "apache-centos" utilizando la version "apache-cmd" utiliznado de salida del ordenador el puerto 80 y de la imagen el puerto 80.
+
+sudo docker run -d --name apache1 -p 80:80  apache-centos:apache-cmd
