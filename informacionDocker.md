@@ -8,6 +8,10 @@ sudo docker images
 
 sudo docker ps -a
 
+###### Compilacion del DOCKERFILE
+
+sudo docker build -t apache .
+
 ###### corre y/o crea un contenedor
 
 sudo docker run -d apache-centos
@@ -27,3 +31,11 @@ sudo docker run -d --name apache apache-centos:apache-cmd
 ###### corre un contenedor asigandole el nombre "apache1" utilizando la imagen "apache-centos" utilizando la version "apache-cmd" utiliznado de salida del ordenador el puerto 80 y de la imagen el puerto 80.
 
 sudo docker run -d --name apache1 -p 80:80  apache-centos:apache-cmd
+
+###### STOP. START. PAUSE en contenedores
+
+sudo docker pause "name del contenedor"
+
+sudo docker stop "name del contenedor"
+
+sudo docker start "name del contenedor"
