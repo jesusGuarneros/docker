@@ -21,6 +21,6 @@ USER root
 
 RUN cp /tmp/user2.html /var/www/html/user2.html
 
+COPY run.sh /run.sh
 
-
-CMD apachectl -DFOREGROUND
+CMD sh /run.sh
