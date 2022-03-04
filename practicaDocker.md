@@ -44,6 +44,25 @@ se expone el puerto con el que se va a trabajar.
 
 EXPONSE:81
 
+###### LABEL
+
+Son data de la imagen.
+
+LABEL version=1.0
+
+LABEL description="es una imagen de prueba"
+
+
+###### VOLUME
+
+se determina cierta informacion que no se eliminara despues de que se hya eliminado el contenedor.
+
+VOLUME /var/www/html
+
+###### USER
+
+se utiliza para el manejo de la informacion con los diferentes usuarios creados o por crear.
+
 ## Ejemplo de Docker file con ubuntu
 
 ###### Se instala la imagen de ubuntu o cualquier otro sistema operativo  (se puede especificar la version o se instala la ultima).

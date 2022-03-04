@@ -1,15 +1,26 @@
 FROM  centos:7
 
+LABEL version=1.0
+LABEL description="es una imagen de prueba"
+
 RUN yum install httpd -y
 
-WORKDIR /var/www/html
+COPY prueba /var/www/html
 
-COPY prueba .
+RUN echo "$(whoami)" > /var/www/html/user1.html
 
-ENV contenido pruebas
+RUN useradd jesus
 
-RUN echo "$contenido" > /var/www/html/pruebas.html
+RUN chown jesus /var/www/html
 
-EXPOSE 8080
+USER jesus
+
+RUN echo "$(whoami)" > /tmp/user2.html
+
+USER root
+
+RUN cp /tmp/user2.html /var/www/html/user2.html
+
+
 
 CMD apachectl -DFOREGROUND
