@@ -24,6 +24,8 @@ sudo docker history -H apache-centos:apache-cmd
 
 sudo docker rm -fv dreamy_neumann
 
+sudo docker rm -f dreamy_neumann
+
 ###### corre un contenedor asigandole el nombre "apache" utilizando la imagen "apache-centos" utilizando la version "apache-cmd"
 
 sudo docker run -d --name apache apache-centos:apache-cmd

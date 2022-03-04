@@ -22,6 +22,27 @@ COPY "nombre_carpet_pasar" "direccion_del contenedor"
 
 ADD "link_archivo" "direccion_del_contenedor"
 
+###### ENV
+
+variables de entorno:
+
+// se declara contenido y pruebas es lo que se ira guardado en la variable.
+
+ENV contenido pruebas
+
+//se pasa contenido en el nuevo archivo llamado pruebas.html
+
+RUN echo "$contenido" > /var/www/html/pruebas.html
+
+###### WORKDIR
+
+directorio actual en el cual se esta trabajando.
+
+###### EXPONSE
+
+se expone el puerto con el que se va a trabajar.
+
+EXPONSE:81
 
 ## Ejemplo de Docker file con ubuntu
 
