@@ -41,3 +41,7 @@ sudo docker pause "name del contenedor"
 sudo docker stop "name del contenedor"
 
 sudo docker start "name del contenedor"
+
+###### Eliminar una imagen especifica:
+
+sudo docker rmi a7029688a460 0513f9d550a4
