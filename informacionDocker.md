@@ -45,3 +45,17 @@ sudo docker start "name del contenedor"
 ###### Eliminar una imagen especifica:
 
 sudo docker rmi a7029688a460 0513f9d550a4
+
+###### Hacer Imagen que no sea de Docker
+
+se compila de la misma forma. especificando el nombre. Con diferencia de que se agrega -f ""Nuevo Dockerfile"" y finaliza con un punto.
+
+sudo docker build -t test -f NuevoDockerfile .
+
+###### Dangling Images
+
+docker images -f dangling dangling=true
+
+sudo docker images -f dangling=true -q 
+
+sudo docker iamges -f dangling=true -q ! xargs docker rmi
