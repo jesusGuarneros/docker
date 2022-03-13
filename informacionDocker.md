@@ -56,6 +56,20 @@ sudo docker build -t test -f NuevoDockerfile .
 
 docker images -f dangling dangling=true
 
-sudo docker images -f dangling=true -q 
+sudo docker images -f dangling=true -q
 
 sudo docker iamges -f dangling=true -q ! xargs docker rmi
+
+###### Listado de contenedores
+
+**docker ps** contenedores corriendo.
+
+**docker ps -a** todos los contenedores.
+
+**docker run -d** correr contenedor en segundo plano
+
+**docker run -d** **jenkins** se asigna la imagen que se va a ejecutar.
+
+**docker run -d -p 8080:8080 jenkins** se habilitan los puertos
+
+**docker run -d -p 9090:8080 jenkins** se habilitan los puertos
