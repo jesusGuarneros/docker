@@ -75,4 +75,19 @@ Para realizar un dockercommit
 
 docker commit centos centos-resultante   => nombre del contenedor como primer parametro  =>nombre de la imagen resultante.
 
-Todo lo resultante en el VOLUME
+Todo lo resultante en el VOLUME 
+
+###### Sobreescribir CMD
+
+
+    imagen normal				nuevo cmd
+
+docker run  -d -p 80:80 centos   python -m SimpleHTTPServer 8080
+
+pasar el cmd como un argumento, al momento de crear el contenedor.
+
+###### eliminar el contenedor de manera automatica
+
+docker run --rm -ti  --name centosprueba centos bash   => No se utiliza el -d ya que no no lo necesitamos en el background, se 			  
+
+eliminara al momento de salir
