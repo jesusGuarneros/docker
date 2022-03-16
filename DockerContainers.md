@@ -30,20 +30,41 @@ Es importante revisar la pagina oficial de los contenedores. Utilizandso las ima
 
 -u jesus
 
-
 ###### Limitar contenedores
 
 docker run -d --name mongo mongo
 
-docker stats mongo  =>se verifica el status del contenedor. 
+docker stats mongo  =>se verifica el status del contenedor.
 
 docker run -d -m ""500mb"" --name mongo2 mongo   =>se limita la memoria ram que se utiliza  en mb
 
 docker run -d -m ""500gb"" --name mongo2 mongo   =>se limita la memoria ram que se utiliza  en gb
-
 
 grep ""model name"" /proc/cpuinfo \\\\ wc-l
 
 docker run -d -m ""500mb"" --cpuset-cpus 0-1 --name mongo2 mongo
 
 =>se limita la los cpu que se utiliza con --cpuset-cpus 0-2.
+
+
+###### Ejmplo de copiar algo en los containers:
+
+
+
+docker run -d --name apachecopy -p 80:80 httpd  => creacion del contenedor
+
+sudo docker cp index.html apachecopy:/tmp   => se copia el archivo al lugar del contenedor, declarando el nombre del contenedor y carpeta dirigida
+
+sudo docker exec -ti apachecopy bash  =>se entra al contenedor para visualizar en la ruta especifica el archivo.
+
+cat index.html => vizualiza el documento. 
+
+docker cp index.html apachecopy:/usr/local/apache2/htdocs/index.html  => se copia el archivo htdocs para que se pueda vizualizar el nuevo index, sobreescribiendo el anterior.
+
+** *Copiar archvivos del contenedor a maquina anfitrion.* **
+
+    Se determina el contenedor y archivo a pasar.   Posteriormete se ubica la ruta donde sera guardado.
+
+docker cp apachecopy:/var/log/dpkg.log .   
+
+sudo docker cp apachecopy:/usr/local/apache2/htdocs/index.html .   =>se copia el index a la carpeta donde nos encontramos ubicados.
