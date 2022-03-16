@@ -68,3 +68,11 @@ docker cp index.html apachecopy:/usr/local/apache2/htdocs/index.html  => se copi
 docker cp apachecopy:/var/log/dpkg.log .   
 
 sudo docker cp apachecopy:/usr/local/apache2/htdocs/index.html .   =>se copia el index a la carpeta donde nos encontramos ubicados.
+
+###### Convertir el contenedor a una imagen.
+
+Para realizar un dockercommit
+
+docker commit centos centos-resultante   => nombre del contenedor como primer parametro  =>nombre de la imagen resultante.
+
+Todo lo resultante en el VOLUME
