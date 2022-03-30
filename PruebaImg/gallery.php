@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ESP32-CAM Photo Gallery</title>
+  <title>Huichapan Pueblo Magico Photo Gallery</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     .flex-container {
@@ -24,7 +24,6 @@
     }
   </style>
 </head><body>
-<h2>ESP32-CAM Photo Gallery</h2>
 <?php
   // Image extensions
   $image_extensions = array("png","jpg","jpeg","gif");
@@ -50,7 +49,7 @@
     foreach ($files as $file) {
       if ($file != '.' && $file != '..') {?>
         <div>
-          <p><a href="gallery.php?delete=<?php echo $dir . $file; ?>">Delete file</a> - <?php echo $file; ?></p>
+          <p><a href="gallery.php?delete=<?php echo $dir . $file; ?>">Eliminar Imagen</a> - <?php echo $file; ?></p>
           <a href="<?php echo $dir . $file; ?>">
             <img src="<?php echo $dir . $file; ?>" style="width: 350px;" alt="" title=""/>
           </a>

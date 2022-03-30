@@ -8,8 +8,7 @@ RUN \
      php-common\
      mod_ssl\
      openssl
-
-COPY uploads /var/www/html
+RUN mkdir /var/www/html/uploads
 COPY upload.php /var/www/html
 COPY gallery.php /var/www/html
 
