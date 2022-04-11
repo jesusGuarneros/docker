@@ -1,0 +1,8 @@
+version: '3'
+services:
+  db:
+    image: mysql
+    container_name: mysqlcompose
+    ports:
+      - 3306:3306
+    env_file: common.env

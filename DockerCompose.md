@@ -58,3 +58,46 @@ ports:
 //uso de la imagen de nginx
 image: nginx
 ```
+
+## Ejemplo de variables de entorno
+
+variables de entorno declaradas en el mismo archivo: enviroment: ""se insertan las variables de entorno""
+
+```
+version: '3'
+services:
+  db:
+    image: mysql:5.7
+    container_name: mysqlcompose
+    ports:
+     -"3306:3306"
+//se declaran las variables de entorno
+    enviroment:
+     "MYSQL_ROOT_PASSWORD=123456"
+
+```
+
+## Ejemplo de variables de entorno 1
+
+variables de entorno declaradas en diferente archivo : common.env 
+
+
+revision simplemente con un 
+
+    docker exec -ti mysqlcompose bash
+
+    mysql -u root -p123456
+
+```
+version: '3'
+services:
+  db:
+    image: mysql:5.7
+    container_name: mysqlcompose
+    ports:
+     -"3306:3306"
+//se declaran las variables de entorno
+    enviroment:
+     "MYSQL_ROOT_PASSWORD=123456"
+
+```
