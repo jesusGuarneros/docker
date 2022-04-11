@@ -117,3 +117,21 @@ services:
 volumes:
   vol2:
 ```
+
+## docker ejemplo de volumen 1:
+
+se mapea desde la carpeta en anfitrion => hacia la carpeta del contenedor.
+
+/home/jesusGuarneros/docker-compose/html : /usr/share/nginx/html
+
+```
+version: '3'
+services: 
+  web: 
+    container_name: nginxcompose
+    ports:
+     - 8080:80
+    volumes:
+      - "/home/jesusGuarneros/docker-compose/html:/usr/share/nginx/html"
+    image: nginx
+```
