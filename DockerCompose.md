@@ -14,27 +14,22 @@ Docker Compose
 
 https://docs.docker.com/compose/install/
 
-
 ## Docker compose
 
-**El archivo debe de tener el nombre y terminacion .yml** 
+**El archivo debe de tener el nombre y terminacion .yml**
 
 ***Debe de tener:***
 
-version: 
+version:
 
 services:
 
-
 docker-compose up -d    => se da de alta el servicio de docker-compose
-
-
 
 //se crea una red automatica, ya que no se le definio una:
 
 Creating network "dockercompose_default" with the default driver
 Creating nginxcompose ... done
-
 
 //se elimina la red, el contenedor:
 
@@ -79,10 +74,9 @@ services:
 
 ## Ejemplo de variables de entorno 1
 
-variables de entorno declaradas en diferente archivo : common.env 
+variables de entorno declaradas en diferente archivo : common.env
 
-
-revision simplemente con un 
+revision simplemente con un
 
     docker exec -ti mysqlcompose bash
 
@@ -100,4 +94,26 @@ services:
     enviroment:
      "MYSQL_ROOT_PASSWORD=123456"
 
+```
+
+## Docker ejemplo de volumen :
+
+se declara el volumen y se usa denominado vol2   con direccion a la carpeta que se desea mapear, en este caso es  /usr/share/nginx/html.
+
+
+el contenedor aunque se elimine y se recree de nuevo, utilizara el volume previamente creado.
+
+```
+version: '3'
+services: 
+  web: 
+    container_name: nginxcompose
+    ports:
+     - 8080:80
+    volumes:
+      - "vol2:/usr/share/nginx/html"
+    image: nginx
+
+volumes:
+  vol2:
 ```
