@@ -197,6 +197,7 @@ services:
     container_name: nginxcompose
     ports:
      - 8080:80
+//asi se llamara la imagen que se compilara con build por el docker file
     image: web-test
     build: .
 ```
@@ -217,6 +218,24 @@ services:
     container_name: nginxcompose
     ports:
      - 8080:80
+//asi se llamara la imagen que se compilara con build por el docker file
     image: web-test
+    build: Dockerfile1
+```
+
+
+## Docker cambiar el cmd.
+
+con la propiedad command se redirecciona el cmd cambiandolo por los diferentes valores
+
+```
+version: '3'
+services: 
+  web: 
+    container_name: nginxcompose
+    ports:
+     - 8080:80
+    image: web-test
+    command: python -m SimpleHTTPServer 8080
     build: Dockerfile1
 ```
