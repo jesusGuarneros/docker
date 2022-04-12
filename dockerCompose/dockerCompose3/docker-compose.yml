@@ -1,0 +1,18 @@
+version: '3'
+services: 
+  web: 
+    container_name: apachecompose
+    ports:
+     - 8080:80
+    image: httpd
+    networks:
+      - net-test
+  web2: 
+    container_name: apachecompose1
+    ports:
+     - 8081:80
+    image: httpd
+    networks:
+      - net-test   
+networks:
+  net-test:

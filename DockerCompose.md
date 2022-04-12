@@ -100,7 +100,6 @@ services:
 
 se declara el volumen y se usa denominado vol2   con direccion a la carpeta que se desea mapear, en este caso es  /usr/share/nginx/html.
 
-
 el contenedor aunque se elimine y se recree de nuevo, utilizara el volume previamente creado.
 
 ```
@@ -134,4 +133,51 @@ services:
     volumes:
       - "/home/jesusGuarneros/docker-compose/html:/usr/share/nginx/html"
     image: nginx
+```
+
+
+## Docker compose redes.
+
+Se  pueden agregar redes con la propiedad de networks, Ejemplo "net-test" y posteriormente asigandola al contenedor de nginxcompose
+
+```
+
+version: '3'
+services: 
+  web: 
+    container_name: nginxcompose
+    ports:
+     - 8080:80
+    image: nginx
+//se asigna la red previamente creada.
+    networks:
+      - net-test
+//se crea la red 
+networks:
+  net-test:
+
+```
+
+## Ejemplo compuesto usando una red en dos contenedores, con la finalidad que haya coneccion entre ellos.
+
+```
+version: '3'
+services: 
+  web: 
+    container_name: apachecompose
+    ports:
+     - 8080:80
+    image: httpd
+    networks:
+      - net-test
+  web2: 
+    container_name: apachecompose1
+    ports:
+     - 8081:80
+    image: httpd
+    networks:
+      - net-test   
+networks:
+  net-test:
+
 ```
