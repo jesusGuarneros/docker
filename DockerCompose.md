@@ -135,7 +135,6 @@ services:
     image: nginx
 ```
 
-
 ## Docker compose redes.
 
 Se  pueden agregar redes con la propiedad de networks, Ejemplo "net-test" y posteriormente asigandola al contenedor de nginxcompose
@@ -180,4 +179,44 @@ services:
 networks:
   net-test:
 
+```
+
+
+## Ejemplo de creacion de imagen desde docker compose.
+
+se crea un build referente al dockerfile que se encuentra en la misma carpeta. 
+
+    compilandolo con el comando ""docker-compose build""
+
+    posteriormete se utiliza el comando "docker-compose up -d"" para compilar el archivo normal
+
+```
+version: '3'
+services: 
+  web: 
+    container_name: nginxcompose
+    ports:
+     - 8080:80
+    image: web-test
+    build: .
+```
+
+
+## Dockerfile con diferente nombre
+
+se crea un build referente al dockerfile1 que se encuentra en la misma carpeta.
+
+    compilandolo con el comando ""docker-compose build""
+
+    posteriormete se utiliza el comando "docker-compose up -d"" para compilar el archivo normal
+
+```
+version: '3'
+services: 
+  web: 
+    container_name: nginxcompose
+    ports:
+     - 8080:80
+    image: web-test
+    build: Dockerfile1
 ```
