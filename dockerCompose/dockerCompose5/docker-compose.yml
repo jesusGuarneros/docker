@@ -1,0 +1,9 @@
+version: '3'
+services: 
+  web: 
+    container_name: nginxcompose
+    mem_limit: 20m
+    cpuset: "0"
+    ports:
+     - 8080:80
+    image: nginx
