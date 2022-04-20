@@ -1,0 +1,26 @@
+version: '3'
+services:
+  db:
+    container_name: mysqlbd
+    image: mysql
+    env_file: db.env
+    volumes:
+      - source2:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - net
+  admin:
+    depends_on:
+      - db
+    container_name: user
+    image: phpmyadmin/phpmyadmin
+    env_file: admin.env
+    ports:
+      - "8080:80"
+    networks:
+      - net
+volumes:
+  source2:
+networks:
+  net:

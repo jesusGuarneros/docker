@@ -1,0 +1,33 @@
+version: '2'
+services:
+  web1:
+    container_name: servidor4-1
+    build: 
+      context: ./
+      dockerfile: Dockerfile1
+    mem_limit: 50m
+    cpuset: "0"
+    ports:
+      - "5555:80"
+    volumes:
+      - web1:/var/www/html/
+    networks:
+      - net
+  web2:
+    container_name: servidor4-2
+    build: 
+      context: ./
+      dockerfile: Dockerfile2
+    mem_limit: 100m
+    cpuset: "0-1"
+    ports:
+      - "8181:80"
+    volumes:
+      - web2:/var/www/html/
+    networks:
+      - net
+volumes:
+  web1:
+  web2:
+networks:
+  net:

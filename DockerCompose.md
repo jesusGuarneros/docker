@@ -323,7 +323,6 @@ networks:
 
 #se crea una red llamada my_net y se asigna a los dos servicios.
 
-
 ```
 version: '3'
 services:
@@ -348,7 +347,6 @@ volumes:
 networks:
   net:
 ```
-
 
 ## Docker compose y prestashop.
 
@@ -396,3 +394,6 @@ services:
 networks:
   my_net:
 ```
+
+
+## Docker registry:
